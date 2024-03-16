@@ -68,9 +68,10 @@ function App() {
   const loadMore = () => {
     setPage((prevPage) => prevPage + 1);
   };
+
   return (
     <>
-      <SearchBar onSubmit={handleSearchSubmit} setPics={setPics} />
+      <SearchBar onSubmit={handleSearchSubmit} />
 
       {isError ? (
         <ErrorMessage />
@@ -80,9 +81,7 @@ function App() {
 
           {isLoading && <Loader />}
 
-          {Array.isArray(pics) && pics.length > 0 && hasMore && (
-            <LoadMoreBtn onLoadMore={loadMore} />
-          )}
+          {pics.length > 0 && hasMore && <LoadMoreBtn onLoadMore={loadMore} />}
 
           {selectedImageUrl && (
             <ImageModal

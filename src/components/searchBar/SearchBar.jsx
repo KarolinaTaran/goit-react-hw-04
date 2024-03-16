@@ -2,25 +2,17 @@ import css from "./SearchBar.module.css";
 import { Field, Form, Formik } from "formik";
 import { Toaster, toast } from "react-hot-toast";
 
-const SearchBar = ({ onSubmit, setPics }) => {
-  const handleSubmit = async (values, { resetForm }) => {
-    try {
-      const results = await onSubmit(values.query);
-      console.log(values.query);
-      notify(values, results);
-      resetForm();
-    } catch (error) {
-      console.error("Error:", error);
-    }
+const SearchBar = ({ onSubmit }) => {
+  const handleSubmit = (values, { resetForm }) => {
+    const results = values.query;
+    onSubmit(results);
+    notify(values);
+    resetForm();
   };
 
-  const notify = (values, results) => {
+  const notify = (values) => {
     if (!values.query || values.query.trim() === "") {
       toast.error("Sorry, there is no search query!");
-      setPics([]);
-    } else if (!results || !Array.isArray(results) || results.length === 0) {
-      toast.error("Sorry, there is no query you are searching for!");
-      setPics([]);
     }
   };
 

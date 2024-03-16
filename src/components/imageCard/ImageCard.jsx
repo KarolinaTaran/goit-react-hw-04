@@ -18,7 +18,7 @@ const ImageCard = ({ pic, openModal }) => {
         </p>
         <p>
           <strong>Description:</strong>
-          {pic.description}
+          {pic.description === null ? "This is a lovely pic" : pic.description}
         </p>
       </div>
     </div>
