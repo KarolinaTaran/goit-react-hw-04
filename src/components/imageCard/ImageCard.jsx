@@ -1,8 +1,26 @@
-const ImageCard = ({ pic, description }) => {
+import css from "./ImageCard.module.css";
+const ImageCard = ({ pic, openModal }) => {
+  const handleClick = () => {
+    openModal(pic.urls.regular);
+  };
   return (
-    <div>
-      <img src={pic.urls.small} alt={pic.description} />
-      <p>{description}</p>
+    <div className={css.wrapper}>
+      <img
+        onClick={handleClick}
+        className={css.img}
+        src={pic.urls.small}
+        alt={pic.slug}
+      />
+      <div className={css.textWrapper}>
+        <p>
+          <strong>Likes:</strong>
+          {pic.likes}
+        </p>
+        <p>
+          <strong>Description:</strong>
+          {pic.description}
+        </p>
+      </div>
     </div>
   );
 };

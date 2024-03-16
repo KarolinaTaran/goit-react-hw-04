@@ -1,0 +1,14 @@
+.galleryList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    row-gap: 10px;
+}
+
+.galleryItem {
+    width: max-content;
+    height: min-content;
+    border-radius: 8px;
+    border: 2px solid rgb(204, 211, 202);
+}

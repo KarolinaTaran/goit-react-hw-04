@@ -1,10 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 const ErrorMessage = () => {
-  return <div></div>;
+  return (
+    <div>
+      <p>
+        Oops! Something went wrong while fetching images. Please refresh the
+        page and try again.
+      </p>
+    </div>
+  );
 };
-
-ErrorMessage.propTypes = {};
 
 export default ErrorMessage;
